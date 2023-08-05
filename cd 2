@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    int numWhitespaces = 0;
+    int numNewlines = 0;
+    char c;
+
+    // Open the input source file
+    FILE* inputFile = fopen("input_file.txt", "r");
+    if (inputFile == NULL) {
+        printf("Failed to open the input file.\n");
+        return 1;
+    }
+
+    // Loop through the source code and count white spaces and newlines
+    while ((c = fgetc(inputFile)) != EOF) {
+        if (isspace(c)) {
+            if (c == '\n') {
+                numNewlines++;
+            } else {
+                numWhitespaces++;
+            }
+        }
+    }
+
+    // Close the input file
+    fclose(inputFile);
+
+    // Print the results
+    printf("Number of white spaces: %d\n", numWhitespaces);
+    printf("Number of newline characters: %d\n", numNewlines);
+
+    return 0;
+}
