@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <ctype.h>
+
+enum TokenType {
+    // Define token types here
+};
+
+struct Token {
+    enum TokenType type;
+    char* lexeme;
+};
+
+// Function to skip comments
+void skipComments(FILE* file) {
+    // Implement comment skipping logic here
+}
+
+// Function to get the next token
+struct Token getNextToken(FILE* file) {
+    struct Token token;
+    // Implement tokenization logic here
+    // Skip redundant spaces, tabs, and new lines
+    // Call skipComments to ignore comments
+
+    return token;
+}
+
+int main() {
+    // Open the input source file
+    FILE* inputFile = fopen("input_file.txt", "r");
+    if (inputFile == NULL) {
+        printf("Failed to open the input file.\n");
+        return 1;
+    }
+
+    // Loop through the source code and get tokens
+    struct Token token;
+    do {
+        token = getNextToken(inputFile);
+        // Process the token or display its details
+    } while (token.type != /* End of File token type */);
+
+    // Close the input file
+    fclose(inputFile);
+
+    return 0;
+}
